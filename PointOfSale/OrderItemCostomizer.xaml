@@ -10,28 +10,28 @@
 
         <Label x:Name="OrderItemName"/>
 
-        <StackPanel x:Name="SizeSelector" Visibility="Collapsed"  Margin="0,0,0,40">
-            <RadioButton Content="Small" IsChecked="True"/>
+        <StackPanel x:Name="SizeSelector" Visibility="Visible"  Margin="0,0,0,40">
+            <RadioButton Content="Small"/>
             <RadioButton Content="Medium"/>
             <RadioButton Content="Large"/>
         </StackPanel>
 
-        <CheckBox Name="BunSelector">Bun</CheckBox>
-        <CheckBox Name="PickleSelector">Pickle</CheckBox>
-        <CheckBox Name="CheeseSelector">Cheese</CheckBox>
-        <CheckBox Name="KetchupSelector">Ketchup</CheckBox>
-        <CheckBox Name="MustardSelector">Mustard</CheckBox>
-        <CheckBox Name="TomatoSelector">Tomato</CheckBox>
-        <CheckBox Name="LettuceSelector">Lettuce</CheckBox>
-        <CheckBox Name="MayoSelector">Mayo</CheckBox>
-        <CheckBox Name="BaconSelector">Bacon</CheckBox>
-        <CheckBox Name="EggSelector">Egg</CheckBox>
+        <CheckBox Name="BunSelector" IsChecked="{Binding Path=Bun}">Bun</CheckBox>
+        <CheckBox Name="PickleSelector" IsChecked="{Binding Path=Pickle}">Pickle</CheckBox>
+        <CheckBox Name="CheeseSelector" IsChecked="{Binding Path=Cheese}">Cheese</CheckBox>
+        <CheckBox Name="KetchupSelector" IsChecked="{Binding Path=Ketchup}">Ketchup</CheckBox>
+        <CheckBox Name="MustardSelector" IsChecked="{Binding Path=Mustard}">Mustard</CheckBox>
+        <CheckBox Name="TomatoSelector" IsChecked="{Binding Path=Tomato}">Tomato</CheckBox>
+        <CheckBox Name="LettuceSelector" IsChecked="{Binding Path=Lettuce}">Lettuce</CheckBox>
+        <CheckBox Name="MayoSelector" IsChecked="{Binding Path=Mayo}">Mayo</CheckBox>
+        <CheckBox Name="BaconSelector" IsChecked="{Binding Path=Bacon}">Bacon</CheckBox>
+        <CheckBox Name="EggSelector" IsChecked="{Binding Path=Egg}">Egg</CheckBox>
 
-        <CheckBox Name="IceSelector">Ice</CheckBox>
-        <CheckBox Name="CreamSelector">Leave room for cream</CheckBox>
-        <CheckBox Name="DecafSelector">Decaf</CheckBox>
-        <CheckBox Name="SweetSelector">Sweet</CheckBox>
-        <CheckBox Name="LemonSelector">Lemon</CheckBox>
+        <CheckBox Name="IceSelector" IsChecked="{Binding Path=Ice}">Ice</CheckBox>
+        <CheckBox Name="CreamSelector" IsChecked="{Binding Path=Cream}">Leave room for cream</CheckBox>
+        <CheckBox Name="DecafSelector" IsChecked="{Binding Path=Decaf}">Decaf</CheckBox>
+        <CheckBox Name="SweetSelector" IsChecked="{Binding Path=Sweet}">Sweet</CheckBox>
+        <CheckBox Name="LemonSelector" IsChecked="{Binding Path=Lemon}">Lemon</CheckBox>
 
         <StackPanel Name="FlavorSelector" Visibility="Collapsed" Margin="0,40,0,0">
             <RadioButton IsChecked="True">Cream Soda</RadioButton>
