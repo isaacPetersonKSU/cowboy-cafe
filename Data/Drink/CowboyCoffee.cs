@@ -50,7 +50,7 @@ namespace CowboyCafe.Data
         /// </summary>
         public CowboyCoffee()
         {
-            prices = new double[] { 0.60, 1.10, 1.60 };
+            Price = new double[] { 0.60, 1.10, 1.60 };
             calories = new uint[] { 3, 5, 7 };
             //unlike all other drinks, ice not included by default
             ice = false;

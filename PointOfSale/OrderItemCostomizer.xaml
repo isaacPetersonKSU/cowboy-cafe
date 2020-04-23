@@ -11,14 +11,15 @@
 
     <StackPanel VerticalAlignment="Top" Background="SaddleBrown" Width="400" HorizontalAlignment="Center">
 
-        <Label x:Name="OrderItemName"/>
+        <Label Content="{Binding}"/>
 
-        <StackPanel x:Name="SizeSelector">
+        <StackPanel x:Name="SizeSelector" Visibility="Collapsed" Margin="0,0,0,40">
             <RadioButton Name="SmallButton" Checked="SmallButton_Checked">Small</RadioButton>
             <RadioButton Name="MediumButton" Checked="MediumButton_Checked">Medium</RadioButton>
             <RadioButton Name="LargeSelector" Checked="LargeSelector_Checked">Large</RadioButton>
         </StackPanel>
 
+        <CheckBox Name="BreadSelector" IsChecked="{Binding Path=Bread}">Bread</CheckBox>
         <CheckBox Name="BunSelector" IsChecked="{Binding Path=Bun}">Bun</CheckBox>
         <CheckBox Name="PickleSelector" IsChecked="{Binding Path=Pickle}">Pickle</CheckBox>
         <CheckBox Name="CheeseSelector" IsChecked="{Binding Path=Cheese}">Cheese</CheckBox>
@@ -29,6 +30,9 @@
         <CheckBox Name="MayoSelector" IsChecked="{Binding Path=Mayo}">Mayo</CheckBox>
         <CheckBox Name="BaconSelector" IsChecked="{Binding Path=Bacon}">Bacon</CheckBox>
         <CheckBox Name="EggSelector" IsChecked="{Binding Path=Egg}">Egg</CheckBox>
+        <CheckBox Name="SourCreamSelector" IsChecked="{Binding Path=SourCream}">Sour Cream</CheckBox>
+        <CheckBox Name="GreenOnionSelector" IsChecked="{Binding Path=GreenOnion}">Green Onions</CheckBox>
+        <CheckBox Name="TortillaStripsSelector" IsChecked="{Binding Path=TortillaStrips}">Tortilla Strips</CheckBox>
 
         <CheckBox Name="IceSelector" IsChecked="{Binding Path=Ice}">Ice</CheckBox>
         <CheckBox Name="CreamSelector" IsChecked="{Binding Path=RoomForCream}">Leave room for cream</CheckBox>
@@ -37,11 +41,11 @@
         <CheckBox Name="LemonSelector" IsChecked="{Binding Path=Lemon}">Lemon</CheckBox>
 
         <StackPanel Name="FlavorSelector" Visibility="Collapsed" Margin="0,40,0,0">
-            <RadioButton IsChecked="True">Cream Soda</RadioButton>
-            <RadioButton>Orange Soda</RadioButton>
-            <RadioButton>Sarsparilla</RadioButton>
-            <RadioButton>Birch Beer</RadioButton>
-            <RadioButton>Root Beer</RadioButton>
+            <RadioButton Name="CreamSodaButton" Checked="CreamSodaButton_Checked">Cream Soda</RadioButton>
+            <RadioButton Name="OrangeSodaButton" Checked="OrangeSodaButton_Checked">Orange Soda</RadioButton>
+            <RadioButton Name="SarsarillaButton" Checked="SarsarillaButton_Checked">Sarsparilla</RadioButton>
+            <RadioButton Name="BirchBeerButton" Checked="BirchBeerButton_Checked">Birch Beer</RadioButton>
+            <RadioButton Name="RootBeerButton" Checked="RootBeerButton_Checked">Root Beer</RadioButton>
         </StackPanel>
 
     </StackPanel>

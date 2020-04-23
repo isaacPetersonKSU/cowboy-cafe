@@ -32,7 +32,6 @@ namespace PointOfSale
             InitializeComponent();
             item = i;
             DataContext = item;
-            OrderItemName.Content = item.ToString();
 
             if (item is Entree)
             {
@@ -51,15 +50,20 @@ namespace PointOfSale
                         KetchupSelector.Visibility = Visibility.Visible;
                         MustardSelector.Visibility = Visibility.Visible;
                         CheeseSelector.Visibility = Visibility.Visible;
-                        goto case "Angry Chicken";
+                        BunSelector.Visibility = Visibility.Visible;
+                        PickleSelector.Visibility = Visibility.Visible;
+                        break;
                     case "Pecos Pulled Pork":
                         goto case "Angry Chicken";
                     case "Angry Chicken":
                         PickleSelector.Visibility = Visibility.Visible;
-                        BunSelector.Visibility = Visibility.Visible;
+                        BreadSelector.Visibility = Visibility.Visible;
                         break;
                     case "Cowpoke Chilli":
                         CheeseSelector.Visibility = Visibility.Visible;
+                        SourCreamSelector.Visibility = Visibility.Visible;
+                        GreenOnionSelector.Visibility = Visibility.Visible;
+                        TortillaStripsSelector.Visibility = Visibility.Visible;
                         break;
                 }
             }
@@ -107,6 +111,31 @@ namespace PointOfSale
         {
             if (item is Drink) ((Drink)item).Size = CowboyCafe.Data.Size.Large;
             else if (item is Side) ((Side)item).Size = CowboyCafe.Data.Size.Large;
+        }
+
+        private void CreamSodaButton_Checked(object sender, RoutedEventArgs e)
+        {
+            if (item is JerkedSoda) ((JerkedSoda)item).Flavor = SodaFlavor.CreamSoda;
+        }
+
+        private void OrangeSodaButton_Checked(object sender, RoutedEventArgs e)
+        {
+            if (item is JerkedSoda) ((JerkedSoda)item).Flavor = SodaFlavor.OrangeSoda;
+        }
+
+        private void SarsarillaButton_Checked(object sender, RoutedEventArgs e)
+        {
+            if (item is JerkedSoda) ((JerkedSoda)item).Flavor = SodaFlavor.Sarsparilla;
+        }
+
+        private void BirchBeerButton_Checked(object sender, RoutedEventArgs e)
+        {
+            if (item is JerkedSoda) ((JerkedSoda)item).Flavor = SodaFlavor.BirchBeer;
+        }
+
+        private void RootBeerButton_Checked(object sender, RoutedEventArgs e)
+        {
+            if (item is JerkedSoda) ((JerkedSoda)item).Flavor = SodaFlavor.RootBeer;
         }
     }
 }

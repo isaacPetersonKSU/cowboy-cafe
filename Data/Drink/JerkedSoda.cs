@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.ComponentModel;
 
 namespace CowboyCafe.Data
 {
@@ -26,7 +27,12 @@ namespace CowboyCafe.Data
         /// <summary>
         /// gets and sets the flavor of the pop
         /// </summary>
-        public SodaFlavor Flavor { get => flavor; set => flavor = value; }
+        public SodaFlavor Flavor { get => flavor; set
+            {
+                flavor = value;
+                NotifyOfPropertyChange("Flavor");
+            }
+        }
 
         /// <summary>
         /// gets specail prep instructions for the pop
@@ -46,7 +52,7 @@ namespace CowboyCafe.Data
         /// </summary>
         public JerkedSoda()
         {
-            prices = new double[] { 1.59, 2.10, 2.59 };
+            Price = new double[] { 1.59, 2.10, 2.59 };
             calories = new uint[] { 110, 146, 198 };
         }
 

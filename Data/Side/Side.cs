@@ -46,7 +46,12 @@ namespace CowboyCafe.Data
         /// <summary>
         /// Gets the size of the entree
         /// </summary>
-        public virtual Size Size { get => size ; set => size = value ; }
+        public virtual Size Size { get => size ; set 
+            { 
+                size = value;
+                NotifyOfPropertyChange("Size");
+            }
+        }
 
         /// <summary>
         /// Gets the price of the side

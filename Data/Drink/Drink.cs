@@ -34,7 +34,7 @@ namespace CowboyCafe.Data
         /// medium = [1]
         /// large = [2]
         /// </summary>
-        protected double[] prices;
+        protected double[] PriceArray;
 
         /// <summary>
         /// array of possable calorie values 
@@ -57,7 +57,7 @@ namespace CowboyCafe.Data
         /// <summary>
         /// Gets the price of the side
         /// </summary>
-        public virtual double Price { get => prices[(int)size]; }
+        public virtual double Price { get => PriceArray[(int)size]; }
 
         /// <summary>
         /// Gets the calories of the entree
@@ -67,7 +67,12 @@ namespace CowboyCafe.Data
         /// <summary>
         /// does this DRANK have ice?
         /// </summary>
-        public bool Ice { get => ice; set => ice = value; }
+        public bool Ice { get => ice; set
+            {
+                ice = value;
+                NotifyOfPropertyChange("Ice");
+            }
+        }
 
         /// <summary>
         /// gets special prep instructions for the drank

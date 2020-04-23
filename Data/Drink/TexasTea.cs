@@ -15,12 +15,23 @@ namespace CowboyCafe.Data
         /// <summary>
         /// gets and sets if the tea is sweet
         /// </summary>
-        public bool Sweet { get => sweet; set => sweet = value; }
+        public bool Sweet { get => sweet; set
+            {
+                sweet = value;
+                NotifyOfPropertyChange("Sweet");
+            }
+        }
 
         /// <summary>
         /// gets and sets if a lemon gets put in the tea
         /// </summary>
-        public bool Lemon { get => lemon; set => lemon = value; }
+        public bool Lemon { get => lemon; set
+            {
+                lemon = value;
+                NotifyOfPropertyChange("Lemon");
+            }
+
+        }
 
         /// <summary>
         /// special prep instructions for the covfefe
@@ -56,7 +67,7 @@ namespace CowboyCafe.Data
         /// </summary>
         public TexasTea()
         {
-            prices = new double[] { 1.00, 1.50, 2.00 };
+            Price = new double[] { 1.00, 1.50, 2.00 };
             calories = new uint[] { 10, 22, 36 };
         }
 
