@@ -1,11 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.ComponentModel;
 
 namespace CowboyCafe.Data
 {
     public class CowboyCoffee : Drink
-    {
+    {   
         /// <summary>
         /// private backing variables
         /// </summary>
@@ -15,10 +16,20 @@ namespace CowboyCafe.Data
         /// <summary>
         /// gets and sets if the coffee should leave room for cream
         /// </summary>
-        public bool RoomForCream { get => roomForCream; set => roomForCream = value; }
+        public bool RoomForCream { get => roomForCream; set
+            {
+                roomForCream = value;
+                NotifyOfPropertyChange("roomForCream");
+            }
+        }
 
 
-        public bool Decaf { get => decaf; set => decaf = value; }
+        public bool Decaf { get => decaf; set
+            {
+                decaf = value;
+                NotifyOfPropertyChange("Decaf");
+            }
+        }
 
         /// <summary>
         /// special prep instructions for the covfefe
