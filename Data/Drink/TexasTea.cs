@@ -67,7 +67,7 @@ namespace CowboyCafe.Data
         /// </summary>
         public TexasTea()
         {
-            Price = new double[] { 1.00, 1.50, 2.00 };
+            PriceArray = new double[] { 1.00, 1.50, 2.00 };
             calories = new uint[] { 10, 22, 36 };
         }
 
