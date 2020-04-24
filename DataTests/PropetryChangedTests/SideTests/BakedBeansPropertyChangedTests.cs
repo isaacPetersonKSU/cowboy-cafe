@@ -16,72 +16,29 @@ namespace CowboyCafe.DataTests.PropetryChangedTests.SideTests
             Assert.IsAssignableFrom<INotifyPropertyChanged>(bb);
         }
 
-        [Fact]
-        public void SettingAsSmallShouldInvokePropertyChangedForSize()
-        {
-            var bb = new BakedBeans();
-            bb.Size = Size.Medium;
-            Assert.PropertyChanged(bb, "Size", () =>
-            {
-                bb.Size = Size.Small;
-            });
-        }
-
-        [Fact]
-        public void SettingAsSmallShouldInvokePropertyChangedForPrice()
-        {
-            var bb = new BakedBeans();
-            bb.Size = Size.Large;
-            Assert.PropertyChanged(bb, "Price", () =>
-            {
-                bb.Size = Size.Small;
-            });
-        }
-
-        [Fact]
-        public void BakedBeansShouldImplementPropertyChanged()
-        {
-            var bb = new BakedBeans();
-            Assert.IsAssignableFrom<INotifyPropertyChanged>(bb);
-        }
-
-        [Fact]
-        public void SettingAsMediumShouldInvokePropertyChangedForSize()
-        {
-            var bb = new BakedBeans();
-            Assert.PropertyChanged(bb, "Size", () =>
-            {
-                bb.Size = Size.Medium;
-            });
-        }
-
-        [Fact]
-        public void SettingAsMediumShouldInvokePropertyChangedForPrice()
+        [Theory]
+        [InlineData(Size.Large)]
+        [InlineData(Size.Medium)]
+        [InlineData(Size.Small)]
+        public void ChangingSizeShouldInvokePropertyChangedForPrice(Size s)
         {
             var bb = new BakedBeans();
             Assert.PropertyChanged(bb, "Price", () =>
             {
-                bb.Size = Size.Medium;
+                bb.Size = s;
             });
         }
 
-        [Fact]
-        public void SettingAsLargeShouldInvokePropertyChangedForSize()
+        [Theory]
+        [InlineData(Size.Large)]
+        [InlineData(Size.Medium)]
+        [InlineData(Size.Small)]
+        public void ChangingSizeShouldInvokePropertyChangedForSize(Size s)
         {
             var bb = new BakedBeans();
             Assert.PropertyChanged(bb, "Size", () =>
             {
-                bb.Size = Size.Large;
-            });
-        }
-
-        [Fact]
-        public void SettingAsLargeShouldInvokePropertyChangedForPrice()
-        {
-            var bb = new BakedBeans();
-            Assert.PropertyChanged(bb, "Price", () =>
-            {
-                bb.Size = Size.Large;
+                bb.Size = s;
             });
         }
     }

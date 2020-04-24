@@ -16,72 +16,29 @@ namespace CowboyCafe.DataTests.PropetryChangedTests.SideTests
             Assert.IsAssignableFrom<INotifyPropertyChanged>(cd);
         }
 
-        [Fact]
-        public void SettingAsSmallShouldInvokePropertyChangedForSize()
-        {
-            var cd = new CornDodgers();
-            cd.Size = Size.Medium;
-            Assert.PropertyChanged(cd, "Size", () =>
-            {
-                cd.Size = Size.Small;
-            });
-        }
-
-        [Fact]
-        public void SettingAsSmallShouldInvokePropertyChangedForPrice()
-        {
-            var cd = new CornDodgers();
-            cd.Size = Size.Large;
-            Assert.PropertyChanged(cd, "Price", () =>
-            {
-                cd.Size = Size.Small;
-            });
-        }
-
-        [Fact]
-        public void CornDodgersShouldImplementPropertyChanged()
-        {
-            var cd = new CornDodgers();
-            Assert.IsAssignableFrom<INotifyPropertyChanged>(cd);
-        }
-
-        [Fact]
-        public void SettingAsMediumShouldInvokePropertyChangedForSize()
+        [Theory]
+        [InlineData(Size.Large)]
+        [InlineData(Size.Medium)]
+        [InlineData(Size.Small)]
+        public void ChangingSizeShouldInvokePropertyChangedForSize(Size s)
         {
             var cd = new CornDodgers();
             Assert.PropertyChanged(cd, "Size", () =>
             {
-                cd.Size = Size.Medium;
+                cd.Size = s;
             });
         }
 
-        [Fact]
-        public void SettingAsMediumShouldInvokePropertyChangedForPrice()
+        [Theory]
+        [InlineData(Size.Large)]
+        [InlineData(Size.Medium)]
+        [InlineData(Size.Small)]
+        public void ChangingSizeShouldInvokePropertyChangedForPrice(Size s)
         {
             var cd = new CornDodgers();
             Assert.PropertyChanged(cd, "Price", () =>
             {
-                cd.Size = Size.Medium;
-            });
-        }
-
-        [Fact]
-        public void SettingAsLargeShouldInvokePropertyChangedForSize()
-        {
-            var cd = new CornDodgers();
-            Assert.PropertyChanged(cd, "Size", () =>
-            {
-                cd.Size = Size.Large;
-            });
-        }
-
-        [Fact]
-        public void SettingAsLargeShouldInvokePropertyChangedForPrice()
-        {
-            var cd = new CornDodgers();
-            Assert.PropertyChanged(cd, "Price", () =>
-            {
-                cd.Size = Size.Large;
+                cd.Size = s;
             });
         }
     }

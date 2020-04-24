@@ -16,72 +16,29 @@ namespace CowboyCafe.DataTests.PropetryChangedTests.SideTests
             Assert.IsAssignableFrom<INotifyPropertyChanged>(pdc);
         }
 
-        [Fact]
-        public void SettingAsSmallShouldInvokePropertyChangedForSize()
-        {
-            var pdc = new PanDeCampo();
-            pdc.Size = Size.Medium;
-            Assert.PropertyChanged(pdc, "Size", () =>
-            {
-                pdc.Size = Size.Small;
-            });
-        }
-
-        [Fact]
-        public void SettingAsSmallShouldInvokePropertyChangedForPrice()
-        {
-            var pdc = new PanDeCampo();
-            pdc.Size = Size.Large;
-            Assert.PropertyChanged(pdc, "Price", () =>
-            {
-                pdc.Size = Size.Small;
-            });
-        }
-
-        [Fact]
-        public void PanDeCampoShouldImplementPropertyChanged()
-        {
-            var pdc = new PanDeCampo();
-            Assert.IsAssignableFrom<INotifyPropertyChanged>(pdc);
-        }
-
-        [Fact]
-        public void SettingAsMediumShouldInvokePropertyChangedForSize()
+        [Theory]
+        [InlineData(Size.Large)]
+        [InlineData(Size.Medium)]
+        [InlineData(Size.Small)]
+        public void ChangingSizeShouldInvokePropertyChangedForSize(Size s)
         {
             var pdc = new PanDeCampo();
             Assert.PropertyChanged(pdc, "Size", () =>
             {
-                pdc.Size = Size.Medium;
+                pdc.Size = s;
             });
         }
 
-        [Fact]
-        public void SettingAsMediumShouldInvokePropertyChangedForPrice()
+        [Theory]
+        [InlineData(Size.Large)]
+        [InlineData(Size.Medium)]
+        [InlineData(Size.Small)]
+        public void ChangingSizeShouldInvokePropertyChangedForPrice(Size s)
         {
             var pdc = new PanDeCampo();
             Assert.PropertyChanged(pdc, "Price", () =>
             {
-                pdc.Size = Size.Medium;
-            });
-        }
-
-        [Fact]
-        public void SettingAsLargeShouldInvokePropertyChangedForSize()
-        {
-            var pdc = new PanDeCampo();
-            Assert.PropertyChanged(pdc, "Size", () =>
-            {
-                pdc.Size = Size.Large;
-            });
-        }
-
-        [Fact]
-        public void SettingAsLargeShouldInvokePropertyChangedForPrice()
-        {
-            var pdc = new PanDeCampo();
-            Assert.PropertyChanged(pdc, "Price", () =>
-            {
-                pdc.Size = Size.Large;
+                pdc.Size = s;
             });
         }
     }

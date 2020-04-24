@@ -12,76 +12,53 @@ namespace CowboyCafe.DataTests.PropetryChangedTests.DrinkTests
         [Fact]
         public void CowboyCoffeeShouldImplementINotifyPropertyChanged()
         {
-            var ccc = new CowboyCoffee();
-            Assert.IsAssignableFrom<INotifyPropertyChanged>(ccc);
+            var cbc = new CowboyCoffee();
+            Assert.IsAssignableFrom<INotifyPropertyChanged>(cbc);
         }
 
-        [Fact]
-        public void SettingAsSmallShouldInvokePropertyChangedForSize()
+        [Theory]
+        [InlineData(Size.Large)]
+        [InlineData(Size.Medium)]
+        [InlineData(Size.Small)]
+        public void ChangingSizeShouldInvokePropertyChangedForSize(Size s)
         {
-            var ccc = new CowboyCoffee();
-            ccc.Size = Size.Medium;
-            Assert.PropertyChanged(ccc, "Size", () =>
+            var cbc = new CowboyCoffee();
+            Assert.PropertyChanged(cbc, "Size", () =>
             {
-                ccc.Size = Size.Small;
+                cbc.Size = s;
+            });
+        }
+
+        [Theory]
+        [InlineData(Size.Large)]
+        [InlineData(Size.Medium)]
+        [InlineData(Size.Small)]
+        public void ChangingSizeShouldInvokePropertyChangedForPrice(Size s)
+        {
+            var cbc = new CowboyCoffee();
+            Assert.PropertyChanged(cbc, "Price", () =>
+            {
+                cbc.Size = s;
             });
         }
 
         [Fact]
-        public void SettingAsSmallShouldInvokePropertyChangedForPrice()
+        public void ChangingIceShouldInvokePropertyChangedForIce()
         {
-            var ccc = new CowboyCoffee();
-            ccc.Size = Size.Large;
-            Assert.PropertyChanged(ccc, "Price", () =>
+            var cbc = new CowboyCoffee();
+            Assert.PropertyChanged(cbc, "Ice", () =>
             {
-                ccc.Size = Size.Small;
+                cbc.Ice = !cbc.Ice;
             });
         }
 
         [Fact]
-        public void CowboyCoffeeShouldImplementPropertyChanged()
+        public void ChangingIceShouldInvokePropertyChangedForSpecialInstructions()
         {
-            var ccc = new CowboyCoffee();
-            Assert.IsAssignableFrom<INotifyPropertyChanged>(ccc);
-        }
-
-        [Fact]
-        public void SettingAsMediumShouldInvokePropertyChangedForSize()
-        {
-            var ccc = new CowboyCoffee();
-            Assert.PropertyChanged(ccc, "Size", () =>
+            var cbc = new CowboyCoffee();
+            Assert.PropertyChanged(cbc, "SpecialInstructions", () =>
             {
-                ccc.Size = Size.Medium;
-            });
-        }
-
-        [Fact]
-        public void SettingAsMediumShouldInvokePropertyChangedForPrice()
-        {
-            var ccc = new CowboyCoffee();
-            Assert.PropertyChanged(ccc, "Price", () =>
-            {
-                ccc.Size = Size.Medium;
-            });
-        }
-
-        [Fact]
-        public void SettingAsLargeShouldInvokePropertyChangedForSize()
-        {
-            var ccc = new CowboyCoffee();
-            Assert.PropertyChanged(ccc, "Size", () =>
-            {
-                ccc.Size = Size.Large;
-            });
-        }
-
-        [Fact]
-        public void SettingAsLargeShouldInvokePropertyChangedForPrice()
-        {
-            var ccc = new CowboyCoffee();
-            Assert.PropertyChanged(ccc, "Price", () =>
-            {
-                ccc.Size = Size.Large;
+                cbc.Ice = !cbc.Ice;
             });
         }
     }

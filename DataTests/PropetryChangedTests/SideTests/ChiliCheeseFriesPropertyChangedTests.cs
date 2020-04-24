@@ -16,72 +16,29 @@ namespace CowboyCafe.DataTests.PropetryChangedTests.SideTests
             Assert.IsAssignableFrom<INotifyPropertyChanged>(ccf);
         }
 
-        [Fact]
-        public void SettingAsSmallShouldInvokePropertyChangedForSize()
-        {
-            var ccf = new ChilliCheeseFries();
-            ccf.Size = Size.Medium;
-            Assert.PropertyChanged(ccf, "Size", () =>
-            {
-                ccf.Size = Size.Small;
-            });
-        }
-
-        [Fact]
-        public void SettingAsSmallShouldInvokePropertyChangedForPrice()
-        {
-            var ccf = new ChilliCheeseFries();
-            ccf.Size = Size.Large;
-            Assert.PropertyChanged(ccf, "Price", () =>
-            {
-                ccf.Size = Size.Small;
-            });
-        }
-
-        [Fact]
-        public void ChilliCheeseFriesShouldImplementPropertyChanged()
-        {
-            var ccf = new ChilliCheeseFries();
-            Assert.IsAssignableFrom<INotifyPropertyChanged>(ccf);
-        }
-
-        [Fact]
-        public void SettingAsMediumShouldInvokePropertyChangedForSize()
+        [Theory]
+        [InlineData(Size.Large)]
+        [InlineData(Size.Medium)]
+        [InlineData(Size.Small)]
+        public void ChangingSizeShouldInvokePropertyChangedForSize(Size s)
         {
             var ccf = new ChilliCheeseFries();
             Assert.PropertyChanged(ccf, "Size", () =>
             {
-                ccf.Size = Size.Medium;
+                ccf.Size = s;
             });
         }
 
-        [Fact]
-        public void SettingAsMediumShouldInvokePropertyChangedForPrice()
+        [Theory]
+        [InlineData(Size.Large)]
+        [InlineData(Size.Medium)]
+        [InlineData(Size.Small)]
+        public void ChangingSizeShouldInvokePropertyChangedForPrice(Size s)
         {
             var ccf = new ChilliCheeseFries();
             Assert.PropertyChanged(ccf, "Price", () =>
             {
-                ccf.Size = Size.Medium;
-            });
-        }
-
-        [Fact]
-        public void SettingAsLargeShouldInvokePropertyChangedForSize()
-        {
-            var ccf = new ChilliCheeseFries();
-            Assert.PropertyChanged(ccf, "Size", () =>
-            {
-                ccf.Size = Size.Large;
-            });
-        }
-
-        [Fact]
-        public void SettingAsLargeShouldInvokePropertyChangedForPrice()
-        {
-            var ccf = new ChilliCheeseFries();
-            Assert.PropertyChanged(ccf, "Price", () =>
-            {
-                ccf.Size = Size.Large;
+                ccf.Size = s;
             });
         }
     }
