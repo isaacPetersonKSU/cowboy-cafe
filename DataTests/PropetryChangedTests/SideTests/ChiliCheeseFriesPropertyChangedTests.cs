@@ -10,6 +10,13 @@ namespace CowboyCafe.DataTests.PropetryChangedTests.SideTests
     public class ChilliCheeseFriesPropertyChangedTests
     {
         [Fact]
+        public void ChilliCheeseFriesShouldImplementINotifyPropertyChanged()
+        {
+            var ccf = new ChilliCheeseFries();
+            Assert.IsAssignableFrom<INotifyPropertyChanged>(ccf);
+        }
+
+        [Fact]
         public void SettingAsSmallShouldInvokePropertyChangedForSize()
         {
             var ccf = new ChilliCheeseFries();

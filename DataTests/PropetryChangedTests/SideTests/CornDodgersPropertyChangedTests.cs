@@ -10,6 +10,13 @@ namespace CowboyCafe.DataTests.PropetryChangedTests.SideTests
     public class CornDodgersPropertyChangedTests
     {
         [Fact]
+        public void CornDodgersShouldImplementINotifyPropertyChanged()
+        {
+            var cd = new CornDodgers();
+            Assert.IsAssignableFrom<INotifyPropertyChanged>(cd);
+        }
+
+        [Fact]
         public void SettingAsSmallShouldInvokePropertyChangedForSize()
         {
             var cd = new CornDodgers();

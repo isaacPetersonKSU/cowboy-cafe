@@ -10,6 +10,13 @@ namespace CowboyCafe.DataTests.PropetryChangedTests.SideTests
     public class BakedBeansPropertyChangedTests
     {
         [Fact]
+        public void BakedBeansShouldImplementINotifyPropertyChanged()
+        {
+            var bb = new BakedBeans();
+            Assert.IsAssignableFrom<INotifyPropertyChanged>(bb);
+        }
+
+        [Fact]
         public void SettingAsSmallShouldInvokePropertyChangedForSize()
         {
             var bb = new BakedBeans();

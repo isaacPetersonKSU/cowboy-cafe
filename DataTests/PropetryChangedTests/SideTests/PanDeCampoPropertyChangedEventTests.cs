@@ -10,6 +10,13 @@ namespace CowboyCafe.DataTests.PropetryChangedTests.SideTests
     public class PanDeCampoPropertyChangedTests
     {
         [Fact]
+        public void PanDeCampoShouldImplementINotifyPropertyChanged()
+        {
+            var pdc = new PanDeCampo();
+            Assert.IsAssignableFrom<INotifyPropertyChanged>(pdc);
+        }
+
+        [Fact]
         public void SettingAsSmallShouldInvokePropertyChangedForSize()
         {
             var pdc = new PanDeCampo();
