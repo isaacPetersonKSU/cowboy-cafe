@@ -67,7 +67,12 @@ namespace CowboyCafe.Data
         /// <summary>
         /// does this DRANK have ice?
         /// </summary>
-        public bool Ice { get => ice; set => ice = value; }
+        public bool Ice { get => ice; set
+            { 
+                ice = value;
+                NotifyOfPropertyChange("Ice");
+            }
+        }
 
         /// <summary>
         /// gets special prep instructions for the drank

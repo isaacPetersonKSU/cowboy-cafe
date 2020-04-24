@@ -23,13 +23,26 @@
         <Label Grid.Column="1" Grid.Row="0"
                    Content="{Binding Path=OrderNumber}"/>
 
-        <StackPanel Grid.Row="1">
-            <ListView Name="OrderListView" ItemsSource="{Binding Path=Items}"/>
-        </StackPanel>
+        <ListView Grid.Row="1" Grid.ColumnSpan="2" Name="OrderListView" ItemsSource="{Binding Path=Items}" HorizontalContentAlignment="Stretch">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="8*"/>
+                                <ColumnDefinition Width="1*"/>
+                                <ColumnDefinition Width="1*"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Text="{Binding}" Grid.Column="0" FontWeight="Bold"/>
+                            <TextBlock Text="{Binding Path=Price, StringFormat=c}" Grid.Column="1"/>
+                            <Button Background="Red" Content="X" Grid.Column="2" VerticalAlignment="Stretch" MinHeight="0"/>
+                        </Grid>
+                        <ListView ItemsSource="{Binding Path=SpecialInstructions}" Margin="20,0"/>
+                    </StackPanel>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
 
-        <StackPanel Grid.Row="1" Grid.Column="1">
-            <ListView Name="OrderPriceView" ItemsSource="{Binding Path=Prices, StringFormat=c}"/>
-        </StackPanel>
 
         <TextBlock Grid.Row="2" Text="Subtotal"/>
 
