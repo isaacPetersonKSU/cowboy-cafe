@@ -23,5 +23,31 @@ namespace PointOfSale
         {
             InitializeComponent();
         }
+
+        /// <summary>
+        ///  When an order item is selected to be edited from the order
+        /// summery control list
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        public void EditOrderItem(object sender, RoutedEventArgs e)
+        {
+            if(sender is ListBox list && list.SelectedItem is IOrderItem)
+            {
+                OrderControl parent = this.FindAncestor<OrderControl>();
+                UserControl editor = new OrderItemCostomizer((IOrderItem)list.SelectedItem);
+                parent.SwapScreen(editor);
+            }
+        }
+
+        /// <summary>
+        /// When the delete button is clicked on an item 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        public void DeleteOrderItem(object sender, RoutedEventArgs e)
+        {
+            
+        }
     }
 }

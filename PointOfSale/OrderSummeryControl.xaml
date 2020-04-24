@@ -23,7 +23,8 @@
         <Label Grid.Column="1" Grid.Row="0"
                    Content="{Binding Path=OrderNumber}"/>
 
-        <ListView Grid.Row="1" Grid.ColumnSpan="2" Name="OrderListView" ItemsSource="{Binding Path=Items}" HorizontalContentAlignment="Stretch">
+        <ListView Grid.Row="1" Grid.ColumnSpan="2" Name="OrderListView" ItemsSource="{Binding Path=Items}" 
+                  HorizontalContentAlignment="Stretch" SelectionChanged="EditOrderItem">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <StackPanel>
@@ -35,7 +36,7 @@
                             </Grid.ColumnDefinitions>
                             <TextBlock Text="{Binding}" Grid.Column="0" FontWeight="Bold"/>
                             <TextBlock Text="{Binding Path=Price, StringFormat=c}" Grid.Column="1"/>
-                            <Button Background="Red" Content="X" Grid.Column="2" VerticalAlignment="Stretch" MinHeight="0"/>
+                            <Button Background="Red" Content="X" Grid.Column="2" MinHeight="0"/>
                         </Grid>
                         <ListView ItemsSource="{Binding Path=SpecialInstructions}" Margin="20,0"/>
                     </StackPanel>
