@@ -84,7 +84,5 @@ namespace CowboyCafe.DataTests.PropetryChangedTests.DrinkTests
                 ccc.Size = Size.Large;
             });
         }
-
-        {
     }
 }
