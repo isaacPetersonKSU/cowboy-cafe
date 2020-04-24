@@ -123,5 +123,7 @@ namespace CowboyCafe.DataTests
             if (ice && !roomForCream || !ice && roomForCream) Assert.Single(coffee.SpecialInstructions);
             if (ice && roomForCream) Assert.Equal(2, coffee.SpecialInstructions.Count);
         }
+
+
     }
 }
