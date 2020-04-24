@@ -61,5 +61,45 @@ namespace CowboyCafe.DataTests.PropetryChangedTests.DrinkTests
                 cbc.Ice = !cbc.Ice;
             });
         }
+
+        [Fact]
+        public void ChangingDecafShouldInvokePropertyChangedForDecaf()
+        {
+            var cbc = new CowboyCoffee();
+            Assert.PropertyChanged(cbc, "Decaf", () =>
+            {
+                cbc.Decaf = !cbc.Decaf;
+            });
+        }
+
+        [Fact]
+        public void ChangingDecafShouldInvokePropertyChangedForSpecialInstructions()
+        {
+            var cbc = new CowboyCoffee();
+            Assert.PropertyChanged(cbc, "SpecialInstructions", () =>
+            {
+                cbc.Decaf = !cbc.Decaf;
+            });
+        }
+
+        [Fact]
+        public void ChangingRoomForCreamShouldInvokePropertyChangedForRoomForCream()
+        {
+            var cbc = new CowboyCoffee();
+            Assert.PropertyChanged(cbc, "RoomForCream", () =>
+            {
+                cbc.RoomForCream = !cbc.RoomForCream;
+            });
+        }
+
+        [Fact]
+        public void ChangingRoomForCremShouldInvokePropertyChangedForSpecialInstructions()
+        {
+            var cbc = new CowboyCoffee();
+            Assert.PropertyChanged(cbc, "SpecialInstructions", () =>
+            {
+                cbc.RoomForCream = !cbc.RoomForCream;
+            });
+        }
     }
 }
