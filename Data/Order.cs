@@ -19,20 +19,9 @@ namespace CowboyCafe.Data
         private List<IOrderItem> items = new List<IOrderItem>();
 
         /// <summary>
-        /// backing variabble for prices property
-        /// </summary>
-        private List<double> prices = new List<double>();
-
-
-        /// <summary>
         /// list of all items in the order
         /// </summary>
         public IEnumerable<IOrderItem> Items { get => items.ToArray(); }
-        
-        /// <summary>
-        /// list of all prices in the order
-        /// </summary>
-        public IEnumerable<double> Prices { get => prices.ToArray(); }
 
         /// <summary>
         /// total price of all items on the order (before taxes)
@@ -42,9 +31,9 @@ namespace CowboyCafe.Data
             get
             {
                 double subtotal = 0;
-                foreach(double price in prices)
+                foreach(IOrderItem item in items)
                 {
-                    subtotal += price;
+                    subtotal += item.Price;
                 }
                 return subtotal;
             }
@@ -66,7 +55,6 @@ namespace CowboyCafe.Data
         public void Add(IOrderItem item)
         {
             items.Add(item);
-            prices.Add(item.Price);
 
             if (item is INotifyPropertyChanged notifier)
             {
@@ -90,11 +78,9 @@ namespace CowboyCafe.Data
             }
 
             items.Remove(item);
-            prices.Remove(item.Price);
 
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Items"));
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Subtotal"));
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Prices"));
         }
 
         /// <summary>
