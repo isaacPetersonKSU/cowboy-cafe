@@ -47,6 +47,19 @@ namespace PointOfSale
         /// <param name="e"></param>
         public void DeleteOrderItem(object sender, RoutedEventArgs e)
         {
+            if (DataContext is Order order && sender is Button button && button.DataContext is IOrderItem item)
+            {
+                order.Remove(item);
+
+                //this whacky bit of code makes sure that the orderItemCostomizer goes away if and only if
+                //the item we just deleted was being edited by it
+                OrderControl parent = this.FindAncestor<OrderControl>();
+                if (parent.Container.Child is OrderItemCostomizer costomizer && costomizer.DataContext == item)
+                {
+                    parent.SwapScreen(new MenuItemSelectionControl());
+                }
+            }
+
             
         }
     }

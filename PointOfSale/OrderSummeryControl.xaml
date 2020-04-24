@@ -36,7 +36,7 @@
                             </Grid.ColumnDefinitions>
                             <TextBlock Text="{Binding}" Grid.Column="0" FontWeight="Bold"/>
                             <TextBlock Text="{Binding Path=Price, StringFormat=c}" Grid.Column="1"/>
-                            <Button Background="Red" Content="X" Grid.Column="2" MinHeight="0"/>
+                            <Button Background="Red" Content="X" Grid.Column="2" MinHeight="0" Click="DeleteOrderItem" />
                         </Grid>
                         <ListView ItemsSource="{Binding Path=SpecialInstructions}" Margin="20,0"/>
                     </StackPanel>
