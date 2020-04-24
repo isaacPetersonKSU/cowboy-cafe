@@ -5,102 +5,55 @@ using System.ComponentModel;
 using Xunit;
 using CowboyCafe.Data;
 
-namespace CowboyCafe.DataTests.PropetryChangedTests.DrinkTests
+namespace CowboyCafe.DataTests.PropetryChangedTests
 {
     public class OrderPropertyChangedTests
     {
-        /*
         [Fact]
         public void OrderShouldImplementINotifyPropertyChanged()
         {
-            var cbc = new Order();
+            var cbc = new Order(420);
             Assert.IsAssignableFrom<INotifyPropertyChanged>(cbc);
         }
 
-        [Theory]
-        [InlineData(Size.Large)]
-        [InlineData(Size.Medium)]
-        [InlineData(Size.Small)]
-        public void ChangingSizeShouldInvokePropertyChangedForPrice(Size s)
+        [Fact]
+        public void AddingItemToOrderShouldInvokePropertyChangedForSubtotal()
         {
-            var cbc = new Order();
-            Assert.PropertyChanged(cbc, "Price", () =>
+            var order = new Order(420);
+            Assert.PropertyChanged(order, "Subtotal", () =>
             {
-                cbc.Size = s;
-            });
-        }
-
-        [Theory]
-        [InlineData(Size.Large)]
-        [InlineData(Size.Medium)]
-        [InlineData(Size.Small)]
-        public void ChangingSizeShouldInvokePropertyChangedForCalories(Size s)
-        {
-            var cbc = new Order();
-            Assert.PropertyChanged(cbc, "Calories", () =>
-            {
-                cbc.Size = s;
+                order.Add(new MockOrderItem());
             });
         }
 
         [Fact]
-        public void ChangingIceShouldInvokePropertyChangedForIce()
+        public void AddingItemToOrderShouldInvokePropertyChangedForItems()
         {
-            var cbc = new Order();
-            Assert.PropertyChanged(cbc, "Ice", () =>
+            var order = new Order(420);
+            Assert.PropertyChanged(order, "Items", () =>
             {
-                cbc.Ice = !cbc.Ice;
+                order.Add(new MockOrderItem());
             });
         }
 
         [Fact]
-        public void ChangingIceShouldInvokePropertyChangedForSpecialInstructions()
+        public void RemovingItemToOrderShouldInvokePropertyChangedForSubtotal()
         {
-            var cbc = new Order();
-            Assert.PropertyChanged(cbc, "SpecialInstructions", () =>
+            var order = new Order(420);
+            Assert.PropertyChanged(order, "Subtotal", () =>
             {
-                cbc.Ice = !cbc.Ice;
+                order.Remove(new MockOrderItem());
             });
         }
 
         [Fact]
-        public void ChangingDecafShouldInvokePropertyChangedForDecaf()
+        public void RemovingItemToOrderShouldInvokePropertyChangedForItems()
         {
-            var cbc = new Order();
-            Assert.PropertyChanged(cbc, "Decaf", () =>
+            var order = new Order(420);
+            Assert.PropertyChanged(order, "Items", () =>
             {
-                cbc.Decaf = !cbc.Decaf;
+                order.Remove(new MockOrderItem());
             });
         }
-
-        [Fact]
-        public void ChangingDecafShouldInvokePropertyChangedForSpecialInstructions()
-        {
-            var cbc = new Order();
-            Assert.PropertyChanged(cbc, "SpecialInstructions", () =>
-            {
-                cbc.Decaf = !cbc.Decaf;
-            });
-        }
-
-        [Fact]
-        public void ChangingRoomForCreamShouldInvokePropertyChangedForRoomForCream()
-        {
-            var cbc = new Order();
-            Assert.PropertyChanged(cbc, "RoomForCream", () =>
-            {
-                cbc.RoomForCream = !cbc.RoomForCream;
-            });
-        }
-
-        [Fact]
-        public void ChangingRoomForCremShouldInvokePropertyChangedForSpecialInstructions()
-        {
-            var cbc = new Order();
-            Assert.PropertyChanged(cbc, "SpecialInstructions", () =>
-            {
-                cbc.RoomForCream = !cbc.RoomForCream;
-            });
-        }*/
     }
 }
