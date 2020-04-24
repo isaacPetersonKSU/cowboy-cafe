@@ -10,17 +10,6 @@ namespace CowboyCafe.DataTests
     public class OrderTest
     {
         /// <summary>
-        /// generic order item for testing purposes
-        /// </summary>
-        public class MockOrderItem : IOrderItem
-        {
-            public double Price { get; set; }
-            public List<string> SpecialInstructions { get; set; }
-
-            public event PropertyChangedEventHandler PropertyChanged;
-        }
-
-        /// <summary>
         /// should be able to add items to the order
         /// </summary>
         [Fact]

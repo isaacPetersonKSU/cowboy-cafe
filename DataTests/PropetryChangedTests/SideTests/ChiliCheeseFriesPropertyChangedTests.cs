@@ -41,5 +41,18 @@ namespace CowboyCafe.DataTests.PropetryChangedTests.SideTests
                 ccf.Size = s;
             });
         }
+
+        [Theory]
+        [InlineData(Size.Large)]
+        [InlineData(Size.Medium)]
+        [InlineData(Size.Small)]
+        public void ChangingSizeShouldInvokePropertyChangedForCalories(Size s)
+        {
+            var ccf = new ChilliCheeseFries();
+            Assert.PropertyChanged(ccf, "Calories", () =>
+            {
+                ccf.Size = s;
+            });
+        }
     }
 }

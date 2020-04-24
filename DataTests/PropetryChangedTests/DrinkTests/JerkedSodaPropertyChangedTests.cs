@@ -42,6 +42,19 @@ namespace CowboyCafe.DataTests.PropetryChangedTests.DrinkTests
             });
         }
 
+        [Theory]
+        [InlineData(Size.Large)]
+        [InlineData(Size.Medium)]
+        [InlineData(Size.Small)]
+        public void ChangingSizeShouldInvokePropertyChangedForCalories(Size s)
+        {
+            var js = new JerkedSoda();
+            Assert.PropertyChanged(js, "Calories", () =>
+            {
+                js.Size = s;
+            });
+        }
+
         [Fact]
         public void ChangingIceShouldInvokePropertyChangedForIce()
         {

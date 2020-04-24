@@ -41,5 +41,18 @@ namespace CowboyCafe.DataTests.PropetryChangedTests.SideTests
                 pdc.Size = s;
             });
         }
+
+        [Theory]
+        [InlineData(Size.Large)]
+        [InlineData(Size.Medium)]
+        [InlineData(Size.Small)]
+        public void ChangingSizeShouldInvokePropertyChangedForCalories(Size s)
+        {
+            var pdc = new PanDeCampo();
+            Assert.PropertyChanged(pdc, "Calories", () =>
+            {
+                pdc.Size = s;
+            });
+        }
     }
 }
