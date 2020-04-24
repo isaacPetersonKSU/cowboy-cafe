@@ -41,7 +41,7 @@ namespace CowboyCafe.Data
             set
             { 
                 ketchup = value;
-                NotifyOfPropertyChange("Kethcup");
+                NotifyOfPropertyChange("Ketchup");
             }
         }
 
