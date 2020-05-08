@@ -39,6 +39,10 @@
     </StartupObject>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="CashRegister, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>.\CashRegister.dll</HintPath>
+    </Reference>
     <Reference Include="Northwoods.GoWPF, Version=3.0.1.47, Culture=neutral, PublicKeyToken=616e2dc80068a33d, processorArchitecture=MSIL">
       <HintPath>..\packages\Northwoods.GoWPF.3.0.1\lib\net47\Northwoods.GoWPF.dll</HintPath>
     </Reference>
@@ -65,6 +69,9 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="TransactionControl.xaml.cs">
+      <DependentUpon>TransactionControl.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -145,6 +152,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="TransactionControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Data\Data.csproj">
@@ -154,6 +165,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Styles\background.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="CashRegister.dll" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
