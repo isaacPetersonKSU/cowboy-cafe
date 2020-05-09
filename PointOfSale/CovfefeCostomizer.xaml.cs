@@ -23,19 +23,11 @@ namespace PointOfSale
     /// </summary>
     public partial class CovfefeCostomizer : UserControl
     {
-        private CowboyCoffee covfefe;
-        public CovfefeCostomizer(CowboyCoffee c)
-        {
-            covfefe = c;
-            DataContext = c;
-            InitializeComponent();
-        }
 
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            covfefe.Size = Size.Large;
-            covfefe.Decaf = true;
+
         }
     }
 }
