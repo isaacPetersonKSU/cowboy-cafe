@@ -12,6 +12,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using CowboyCafe.Data;
+using CashRegister;
 
 namespace PointOfSale
 {
@@ -24,15 +25,20 @@ namespace PointOfSale
 
         public Order currentOrder;
 
+        //private CashDrawer drawer;
+
+        //private CardTerminal cardTerminal;
+
         public OrderControl()
         {
+            CardTerminal ct = new CardTerminal();
             currentOrder = new Order(1);
             this.DataContext = currentOrder;
             InitializeComponent();
         }
 
         /// <summary>
-        /// does nothing (yet......)
+        /// goes back to select a new item
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -48,8 +54,8 @@ namespace PointOfSale
         /// <param name="e"></param>
         private void CancelOrderButtonClick(object sender, RoutedEventArgs e)
         {
-            orderNumber++;
-            this.DataContext = new Order(orderNumber);
+            currentOrder = new Order(orderNumber++);
+            this.DataContext = currentOrder;
             SwapScreen(new MenuItemSelectionControl());
         }
 
@@ -60,7 +66,7 @@ namespace PointOfSale
         /// <param name="e"></param>
         private void CompleteOrderButtonClick(object sender, RoutedEventArgs e)
         {
-            SwapScreen(new TransactionControl());
+            SwapScreen(new TransactionControl(currentOrder));
 
         }
 
