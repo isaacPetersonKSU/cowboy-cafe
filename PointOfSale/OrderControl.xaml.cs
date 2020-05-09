@@ -48,9 +48,6 @@ namespace PointOfSale
         /// <param name="e"></param>
         private void CancelOrderButtonClick(object sender, RoutedEventArgs e)
         {
-            //for some ABSOLUTLY RETARDED reason, I lost points becasue this didn't
-            //increment the order number. I don't know why you would want it to,
-            //but wtf ever. Here you go, are you happy? 
             orderNumber++;
             this.DataContext = new Order(orderNumber);
             SwapScreen(new MenuItemSelectionControl());
@@ -63,16 +60,8 @@ namespace PointOfSale
         /// <param name="e"></param>
         private void CompleteOrderButtonClick(object sender, RoutedEventArgs e)
         {
-            foreach(IOrderItem item in currentOrder.Items)
-            {
-                string s = String.Join(", ", item.SpecialInstructions.ToArray());
-                
-                MessageBox.Show(s);
-            }
+            SwapScreen(new TransactionControl());
 
-            orderNumber++;
-            this.DataContext = new Order(orderNumber);
-            SwapScreen(new MenuItemSelectionControl());
         }
 
         /// <summary>
