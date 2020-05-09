@@ -54,7 +54,9 @@ namespace PointOfSale
                         PickleSelector.Visibility = Visibility.Visible;
                         break;
                     case "Pecos Pulled Pork":
-                        goto case "Angry Chicken";
+                        PickleSelector.Visibility = Visibility.Visible;
+                        BreadSelector.Visibility = Visibility.Visible;
+                        break;
                     case "Angry Chicken":
                         PickleSelector.Visibility = Visibility.Visible;
                         BreadSelector.Visibility = Visibility.Visible;

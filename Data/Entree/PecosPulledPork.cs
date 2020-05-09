@@ -66,7 +66,7 @@ namespace CowboyCafe.Data
         /// <returns></returns>
         public override string ToString()
         {
-            return "Angry Chicken";
+            return "Pecos Pulled Pork";
         }
     }
 }
