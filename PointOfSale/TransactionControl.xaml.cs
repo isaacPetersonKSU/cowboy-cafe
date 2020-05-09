@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using CowboyCafe.Data;
 
 namespace PointOfSale
 {
@@ -20,9 +21,29 @@ namespace PointOfSale
     /// </summary>
     public partial class TransactionControl : UserControl
     {
+        Order order;
+
+
         public TransactionControl()
         {
             InitializeComponent();
+
+            
+        }
+
+        private void CardClick(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void CashClick(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void GoBackClick(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }
